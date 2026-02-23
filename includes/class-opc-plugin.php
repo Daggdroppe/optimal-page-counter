@@ -14,6 +14,13 @@ final class OPC_Plugin {
 	}
 
 	public function init(): void {
+		// Load translations (if present in /languages).
+		load_plugin_textdomain(
+			'optimal-page-counter',
+			false,
+			dirname(plugin_basename(OPC_PLUGIN_FILE)) . '/languages'
+		);
+
 		// Ensure settings are always available and forward-compatible.
 		OPC_Utils::get_settings();
 
